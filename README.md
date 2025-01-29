@@ -45,7 +45,7 @@ A simple To-Do List application built with React and Bun. This app allows users 
 To build the app for production, run the following command:
 
 ```bash
-bun build src/index.tsx --outdir dist
+bun build src/main.tsx --outdir dist
 ```
 
 This will create a production build of your app in the `dist` folder.
