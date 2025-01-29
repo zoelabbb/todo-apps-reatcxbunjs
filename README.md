@@ -23,7 +23,7 @@ A simple To-Do List application built with React and Bun. This app allows users 
 
    ```bash
    git clone https://github.com/zoelabbb/todo-apps-reatcxbunjs.git
-   cd react-todo-bun
+   cd todo-apps-reatcxbunjs
    ```
 
 2. Install dependencies using Bun:
