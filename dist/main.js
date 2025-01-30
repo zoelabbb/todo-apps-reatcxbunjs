@@ -22792,7 +22792,7 @@ var require_client = __commonJS((exports) => {
 
 // node_modules/react/cjs/react-jsx-dev-runtime.development.js
 var require_react_jsx_dev_runtime_development = __commonJS((exports) => {
-  var React3 = __toESM(require_react(), 1);
+  var React = __toESM(require_react(), 1);
   if (true) {
     (function() {
       var REACT_ELEMENT_TYPE = Symbol.for("react.element");
@@ -22820,7 +22820,7 @@ var require_react_jsx_dev_runtime_development = __commonJS((exports) => {
         }
         return null;
       }
-      var ReactSharedInternals = React3.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
+      var ReactSharedInternals = React.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
       function error(format) {
         {
           {
@@ -23686,8 +23686,18 @@ var require_jsx_dev_runtime = __commonJS((exports, module) => {
 var import_react4 = __toESM(require_react(), 1);
 var import_client = __toESM(require_client(), 1);
 
-// src/App.tsx
-var import_react3 = __toESM(require_react(), 1);
+// src/components/Alert.tsx
+var jsx_dev_runtime = __toESM(require_jsx_dev_runtime(), 1);
+var Alert = ({ message, type = "danger" }) => {
+  if (!message)
+    return null;
+  return /* @__PURE__ */ jsx_dev_runtime.jsxDEV("div", {
+    className: `alert alert-${type} animate__animated animate__fadeInUp`,
+    role: "alert",
+    children: message
+  }, undefined, false, undefined, this);
+};
+var Alert_default = Alert;
 
 // node_modules/react-icons/lib/iconBase.mjs
 var import_react2 = __toESM(require_react(), 1);
@@ -23852,15 +23862,150 @@ function FaExclamationTriangle(props) {
 function FaPlus(props) {
   return GenIcon({ tag: "svg", attr: { viewBox: "0 0 448 512" }, child: [{ tag: "path", attr: { d: "M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z" }, child: [] }] })(props);
 }
+function FaTag(props) {
+  return GenIcon({ tag: "svg", attr: { viewBox: "0 0 512 512" }, child: [{ tag: "path", attr: { d: "M0 252.118V48C0 21.49 21.49 0 48 0h204.118a48 48 0 0 1 33.941 14.059l211.882 211.882c18.745 18.745 18.745 49.137 0 67.882L293.823 497.941c-18.745 18.745-49.137 18.745-67.882 0L14.059 286.059A48 48 0 0 1 0 252.118zM112 64c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.49-48-48-48z" }, child: [] }] })(props);
+}
 function FaTrash(props) {
   return GenIcon({ tag: "svg", attr: { viewBox: "0 0 448 512" }, child: [{ tag: "path", attr: { d: "M432 32H312l-9.4-18.7A24 24 0 0 0 281.1 0H166.8a23.72 23.72 0 0 0-21.4 13.3L136 32H16A16 16 0 0 0 0 48v32a16 16 0 0 0 16 16h416a16 16 0 0 0 16-16V48a16 16 0 0 0-16-16zM53.2 467a48 48 0 0 0 47.9 45h245.8a48 48 0 0 0 47.9-45L416 128H32z" }, child: [] }] })(props);
 }
 
-// src/App.tsx
-var jsx_dev_runtime = __toESM(require_jsx_dev_runtime(), 1);
-function App() {
+// src/components/TodoForm.tsx
+var jsx_dev_runtime2 = __toESM(require_jsx_dev_runtime(), 1);
+var TodoForm = ({ todo, setTodo, priority, setPriority, tag, setTag, addTodo }) => {
+  return /* @__PURE__ */ jsx_dev_runtime2.jsxDEV("div", {
+    className: "d-flex flex-column flex-sm-row mb-3",
+    children: [
+      /* @__PURE__ */ jsx_dev_runtime2.jsxDEV("input", {
+        type: "text",
+        value: todo,
+        onChange: (e) => setTodo(e.target.value),
+        placeholder: "Add a new todo",
+        className: "form-control me-2 mb-2 mb-sm-0",
+        style: { borderRadius: "5px" }
+      }, undefined, false, undefined, this),
+      /* @__PURE__ */ jsx_dev_runtime2.jsxDEV("select", {
+        value: priority,
+        onChange: (e) => setPriority(e.target.value),
+        className: "form-select me-2 mb-2 mb-sm-0",
+        style: { borderRadius: "5px" },
+        children: [
+          /* @__PURE__ */ jsx_dev_runtime2.jsxDEV("option", {
+            value: "Rendah",
+            children: "Rendah"
+          }, undefined, false, undefined, this),
+          /* @__PURE__ */ jsx_dev_runtime2.jsxDEV("option", {
+            value: "Sedang",
+            children: "Sedang"
+          }, undefined, false, undefined, this),
+          /* @__PURE__ */ jsx_dev_runtime2.jsxDEV("option", {
+            value: "Tinggi",
+            children: "Tinggi"
+          }, undefined, false, undefined, this)
+        ]
+      }, undefined, true, undefined, this),
+      /* @__PURE__ */ jsx_dev_runtime2.jsxDEV("input", {
+        type: "text",
+        value: tag,
+        onChange: (e) => setTag(e.target.value),
+        placeholder: "Tag (optional)",
+        className: "form-control me-2 mb-2 mb-sm-0",
+        style: { borderRadius: "5px" }
+      }, undefined, false, undefined, this),
+      /* @__PURE__ */ jsx_dev_runtime2.jsxDEV("button", {
+        onClick: addTodo,
+        className: "btn btn-primary w-100 w-sm-auto",
+        style: { borderRadius: "5px" },
+        children: /* @__PURE__ */ jsx_dev_runtime2.jsxDEV(FaPlus, {}, undefined, false, undefined, this)
+      }, undefined, false, undefined, this)
+    ]
+  }, undefined, true, undefined, this);
+};
+var TodoForm_default = TodoForm;
+
+// src/components/TodoList.tsx
+var jsx_dev_runtime3 = __toESM(require_jsx_dev_runtime(), 1);
+var TodoList = ({ todos, markCompleted, removeTodo }) => {
+  const getPriorityIcon = (priority) => {
+    switch (priority) {
+      case "Tinggi":
+        return /* @__PURE__ */ jsx_dev_runtime3.jsxDEV(FaExclamationCircle, {
+          style: { color: "red" }
+        }, undefined, false, undefined, this);
+      case "Sedang":
+        return /* @__PURE__ */ jsx_dev_runtime3.jsxDEV(FaExclamationTriangle, {
+          style: { color: "yellow" }
+        }, undefined, false, undefined, this);
+      case "Rendah":
+        return /* @__PURE__ */ jsx_dev_runtime3.jsxDEV(FaCircle, {
+          style: { color: "green" }
+        }, undefined, false, undefined, this);
+      default:
+        return null;
+    }
+  };
+  return /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("ul", {
+    className: "list-group",
+    children: todos.sort((a, b) => {
+      const priorities = { Rendah: 1, Sedang: 2, Tinggi: 3 };
+      return priorities[b.priority] - priorities[a.priority];
+    }).map((todo, index) => /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("li", {
+      className: `list-group-item d-flex justify-content-between align-items-center mb-2 shadow-sm ${todo.completed ? "bg-success text-white" : ""}`,
+      style: {
+        borderRadius: "10px",
+        backgroundColor: "#f8f9fa",
+        borderColor: "#dee2e6",
+        boxShadow: "0 1px 3px rgba(0, 0, 0, 0.1)"
+      },
+      children: [
+        /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("div", {
+          children: /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("span", {
+            style: { textDecoration: todo.completed ? "line-through" : "none" },
+            children: [
+              todo.text,
+              /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("span", {
+                className: "ms-2",
+                children: getPriorityIcon(todo.priority)
+              }, undefined, false, undefined, this),
+              todo.tag && /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("span", {
+                className: "badge bg-secondary ms-2",
+                children: [
+                  /* @__PURE__ */ jsx_dev_runtime3.jsxDEV(FaTag, {
+                    className: "me-1"
+                  }, undefined, false, undefined, this),
+                  todo.tag
+                ]
+              }, undefined, true, undefined, this)
+            ]
+          }, undefined, true, undefined, this)
+        }, undefined, false, undefined, this),
+        /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("div", {
+          children: [
+            /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("button", {
+              onClick: () => markCompleted(index),
+              className: "btn btn-success btn-sm me-2",
+              style: { borderRadius: "5px", padding: "0.5rem" },
+              children: /* @__PURE__ */ jsx_dev_runtime3.jsxDEV(FaCheckCircle, {}, undefined, false, undefined, this)
+            }, undefined, false, undefined, this),
+            /* @__PURE__ */ jsx_dev_runtime3.jsxDEV("button", {
+              onClick: () => removeTodo(index),
+              className: "btn btn-danger btn-sm",
+              style: { borderRadius: "5px", padding: "0.5rem" },
+              children: /* @__PURE__ */ jsx_dev_runtime3.jsxDEV(FaTrash, {}, undefined, false, undefined, this)
+            }, undefined, false, undefined, this)
+          ]
+        }, undefined, true, undefined, this)
+      ]
+    }, index, true, undefined, this))
+  }, undefined, false, undefined, this);
+};
+var TodoList_default = TodoList;
+
+// src/hooks/useTodo.tsx
+var import_react3 = __toESM(require_react(), 1);
+var useTodo = () => {
   const [todo, setTodo] = import_react3.useState("");
   const [priority, setPriority] = import_react3.useState("Rendah");
+  const [tag, setTag] = import_react3.useState("");
   const [todos, setTodos] = import_react3.useState([]);
   const [alert, setAlert] = import_react3.useState(null);
   const [alertType, setAlertType] = import_react3.useState("danger");
@@ -23877,11 +24022,12 @@ function App() {
       setTimeout(() => setAlert(null), 3000);
       return;
     }
-    const newTodo = { text: todo, priority, completed: false };
+    const newTodo = { text: todo, priority, tag, completed: false };
     const newTodos = [...todos, newTodo];
     setTodos(newTodos);
     setTodo("");
     setPriority("Rendah");
+    setTag("");
     localStorage.setItem("todos", JSON.stringify(newTodos));
     setAlert("Todo successfully added!");
     setAlertType("success");
@@ -23910,147 +24056,57 @@ function App() {
     setAlertType("success");
     setTimeout(() => setAlert(null), 3000);
   };
-  const getPriorityIcon = (priority2) => {
-    switch (priority2) {
-      case "Tinggi":
-        return /* @__PURE__ */ jsx_dev_runtime.jsxDEV(FaExclamationCircle, {
-          style: { color: "red" }
-        }, undefined, false, undefined, this);
-      case "Sedang":
-        return /* @__PURE__ */ jsx_dev_runtime.jsxDEV(FaExclamationTriangle, {
-          style: { color: "yellow" }
-        }, undefined, false, undefined, this);
-      case "Rendah":
-        return /* @__PURE__ */ jsx_dev_runtime.jsxDEV(FaCircle, {
-          style: { color: "green" }
-        }, undefined, false, undefined, this);
-      default:
-        return null;
-    }
-  };
-  return /* @__PURE__ */ jsx_dev_runtime.jsxDEV("div", {
+  return { todo, setTodo, priority, setPriority, tag, setTag, todos, addTodo, removeTodo, markCompleted, alert, alertType };
+};
+var useTodo_default = useTodo;
+
+// src/App.tsx
+var jsx_dev_runtime4 = __toESM(require_jsx_dev_runtime(), 1);
+function App() {
+  const { todo, setTodo, priority, setPriority, tag, setTag, todos, addTodo, removeTodo, markCompleted, alert, alertType } = useTodo_default();
+  return /* @__PURE__ */ jsx_dev_runtime4.jsxDEV("div", {
     className: "d-flex flex-column min-vh-100",
     children: [
-      /* @__PURE__ */ jsx_dev_runtime.jsxDEV("div", {
+      /* @__PURE__ */ jsx_dev_runtime4.jsxDEV("div", {
         className: "min-vh-100 d-flex flex-column justify-content-center align-items-center bg-light py-5",
-        children: /* @__PURE__ */ jsx_dev_runtime.jsxDEV("div", {
+        children: /* @__PURE__ */ jsx_dev_runtime4.jsxDEV("div", {
           className: "card shadow-lg p-4 w-100 w-sm-75 w-md-50",
           style: { maxWidth: "500px" },
           children: [
-            /* @__PURE__ */ jsx_dev_runtime.jsxDEV("h1", {
+            /* @__PURE__ */ jsx_dev_runtime4.jsxDEV("h1", {
               className: "text-center text-primary mb-4",
               children: "To-Do List"
             }, undefined, false, undefined, this),
-            alert && /* @__PURE__ */ jsx_dev_runtime.jsxDEV("div", {
-              className: `alert alert-${alertType} mb-3 animate__animated animate__fadeInUp`,
-              role: "alert",
-              children: alert
+            /* @__PURE__ */ jsx_dev_runtime4.jsxDEV(Alert_default, {
+              message: alert || "",
+              type: alertType
             }, undefined, false, undefined, this),
-            /* @__PURE__ */ jsx_dev_runtime.jsxDEV("div", {
-              className: "d-flex flex-column flex-sm-row mb-3",
-              children: [
-                /* @__PURE__ */ jsx_dev_runtime.jsxDEV("input", {
-                  type: "text",
-                  value: todo,
-                  onChange: (e) => setTodo(e.target.value),
-                  placeholder: "Add a new todo",
-                  className: "form-control me-2 mb-2 mb-sm-0",
-                  style: { borderRadius: "5px" }
-                }, undefined, false, undefined, this),
-                /* @__PURE__ */ jsx_dev_runtime.jsxDEV("select", {
-                  value: priority,
-                  onChange: (e) => setPriority(e.target.value),
-                  className: "form-select me-2 mb-2 mb-sm-0",
-                  style: { borderRadius: "5px" },
-                  children: [
-                    /* @__PURE__ */ jsx_dev_runtime.jsxDEV("option", {
-                      value: "Rendah",
-                      children: "Rendah"
-                    }, undefined, false, undefined, this),
-                    /* @__PURE__ */ jsx_dev_runtime.jsxDEV("option", {
-                      value: "Sedang",
-                      children: "Sedang"
-                    }, undefined, false, undefined, this),
-                    /* @__PURE__ */ jsx_dev_runtime.jsxDEV("option", {
-                      value: "Tinggi",
-                      children: "Tinggi"
-                    }, undefined, false, undefined, this)
-                  ]
-                }, undefined, true, undefined, this),
-                /* @__PURE__ */ jsx_dev_runtime.jsxDEV("button", {
-                  onClick: addTodo,
-                  className: "btn btn-primary w-100 w-sm-auto",
-                  style: { borderRadius: "5px" },
-                  children: /* @__PURE__ */ jsx_dev_runtime.jsxDEV(FaPlus, {}, undefined, false, undefined, this)
-                }, undefined, false, undefined, this)
-              ]
-            }, undefined, true, undefined, this),
-            /* @__PURE__ */ jsx_dev_runtime.jsxDEV("ul", {
-              className: "list-group",
-              children: todos.sort((a, b) => {
-                const priorities = { Rendah: 1, Sedang: 2, Tinggi: 3 };
-                return priorities[b.priority] - priorities[a.priority];
-              }).map((todo2, index) => /* @__PURE__ */ jsx_dev_runtime.jsxDEV("li", {
-                className: `list-group-item d-flex justify-content-between align-items-center mb-2 shadow-sm ${todo2.completed ? "bg-success text-white" : ""}`,
-                style: {
-                  borderRadius: "10px",
-                  backgroundColor: "#f8f9fa",
-                  borderColor: "#dee2e6",
-                  boxShadow: "0 1px 3px rgba(0, 0, 0, 0.1)"
-                },
-                children: [
-                  /* @__PURE__ */ jsx_dev_runtime.jsxDEV("span", {
-                    style: {
-                      textDecoration: todo2.completed ? "line-through" : "none"
-                    },
-                    children: [
-                      todo2.text,
-                      /* @__PURE__ */ jsx_dev_runtime.jsxDEV("span", {
-                        className: "ms-2",
-                        children: [
-                          getPriorityIcon(todo2.priority),
-                          " "
-                        ]
-                      }, undefined, true, undefined, this)
-                    ]
-                  }, undefined, true, undefined, this),
-                  /* @__PURE__ */ jsx_dev_runtime.jsxDEV("div", {
-                    children: [
-                      /* @__PURE__ */ jsx_dev_runtime.jsxDEV("button", {
-                        onClick: () => markCompleted(index),
-                        className: "btn btn-success btn-sm me-2",
-                        style: {
-                          borderRadius: "5px",
-                          padding: "0.5rem"
-                        },
-                        children: /* @__PURE__ */ jsx_dev_runtime.jsxDEV(FaCheckCircle, {}, undefined, false, undefined, this)
-                      }, undefined, false, undefined, this),
-                      /* @__PURE__ */ jsx_dev_runtime.jsxDEV("button", {
-                        onClick: () => removeTodo(index),
-                        className: "btn btn-danger btn-sm",
-                        style: {
-                          borderRadius: "5px",
-                          padding: "0.5rem"
-                        },
-                        children: /* @__PURE__ */ jsx_dev_runtime.jsxDEV(FaTrash, {}, undefined, false, undefined, this)
-                      }, undefined, false, undefined, this)
-                    ]
-                  }, undefined, true, undefined, this)
-                ]
-              }, index, true, undefined, this))
+            /* @__PURE__ */ jsx_dev_runtime4.jsxDEV(TodoForm_default, {
+              todo,
+              setTodo,
+              priority,
+              setPriority,
+              tag,
+              setTag,
+              addTodo
+            }, undefined, false, undefined, this),
+            /* @__PURE__ */ jsx_dev_runtime4.jsxDEV(TodoList_default, {
+              todos,
+              markCompleted,
+              removeTodo
             }, undefined, false, undefined, this)
           ]
         }, undefined, true, undefined, this)
       }, undefined, false, undefined, this),
-      /* @__PURE__ */ jsx_dev_runtime.jsxDEV("footer", {
+      /* @__PURE__ */ jsx_dev_runtime4.jsxDEV("footer", {
         className: "text-grey py-3 mt-auto text-center",
-        children: /* @__PURE__ */ jsx_dev_runtime.jsxDEV("p", {
+        children: /* @__PURE__ */ jsx_dev_runtime4.jsxDEV("p", {
           className: "mb-0",
           children: [
             "© ",
             new Date().getFullYear(),
             " ",
-            /* @__PURE__ */ jsx_dev_runtime.jsxDEV("span", {
+            /* @__PURE__ */ jsx_dev_runtime4.jsxDEV("span", {
               children: "Urproject Studio"
             }, undefined, false, undefined, this),
             ". All rights reserved."
@@ -24063,7 +24119,7 @@ function App() {
 var App_default = App;
 
 // src/main.tsx
-var jsx_dev_runtime2 = __toESM(require_jsx_dev_runtime(), 1);
-import_client.createRoot(document.getElementById("root")).render(/* @__PURE__ */ jsx_dev_runtime2.jsxDEV(import_react4.StrictMode, {
-  children: /* @__PURE__ */ jsx_dev_runtime2.jsxDEV(App_default, {}, undefined, false, undefined, this)
+var jsx_dev_runtime5 = __toESM(require_jsx_dev_runtime(), 1);
+import_client.createRoot(document.getElementById("root")).render(/* @__PURE__ */ jsx_dev_runtime5.jsxDEV(import_react4.StrictMode, {
+  children: /* @__PURE__ */ jsx_dev_runtime5.jsxDEV(App_default, {}, undefined, false, undefined, this)
 }, undefined, false, undefined, this));
