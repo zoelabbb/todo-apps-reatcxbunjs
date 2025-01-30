@@ -5,6 +5,7 @@ A simple To-Do List application built with React and Bun. This app allows users 
 ## Features
 
 - **Add new tasks** to the list.
+- **Add tags** to tasks.
 - **Mark tasks as complete**.
 - **Remove tasks** from the list.
 - **Priority system** to categorize tasks.
